@@ -1,0 +1,58 @@
+services:
+  spark-master:
+    image: bitnami/spark:3.5.0
+    container_name: spark-master
+    hostname: spark-master
+    ports:
+      - "7077:7077"  # Spark Master Port
+      - "8081:8080"  # Spark Master Web UI
+    environment:
+      - SPARK_MODE=master
+      - SPARK_LOCAL_IP=spark-master
+      - SPARK_DAEMON_MEMORY=1G
+    volumes:
+      - ./include/spark_jobs:/opt/spark_jobs    # 👈 Add this volume mount
+
+    networks:
+      - spark-net
+
+  spark-worker-1:
+    image: bitnami/spark:3.5.0
+    container_name: spark-worker-1
+    hostname: spark-worker-1
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+    volumes:
+      - ./include/spark_jobs:/opt/spark_jobs    # 👈 Add this volume mount visibility
+    networks:
+      - spark-net
+
+  spark-worker-2:
+    image: bitnami/spark:3.5.0
+    container_name: spark-worker-2
+    hostname: spark-worker-2
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+    volumes:
+      - ./include/spark_jobs:/opt/spark_jobs    # 👈 Add this volume mount
+
+    networks:
+      - spark-net
+
+
+
+networks:
+  spark-net:
+    driver: bridge
+
+
