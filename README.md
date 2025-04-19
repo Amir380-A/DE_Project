@@ -22,6 +22,7 @@ It demonstrates how to build a robust, production-ready pipeline, following indu
 - **Monitoring & Alerts**: Slack Webhooks
 - **Visualization**: Power BI
 - **Observability**: Prometheus and Grafana
+- **Infrastructure**: Terraform
 
 ---
 
@@ -136,6 +137,8 @@ I made an observability and montoring stack with prometheus and grafana to check
 | Slack | Real-time failure alerts |
 | Astro CLI | Simplified local Airflow development |
 | Power BI | Visualization |
+| Terraform | Infrastructure provisioning  |
+
 
 
 ---
