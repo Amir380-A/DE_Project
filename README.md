@@ -68,6 +68,8 @@ The project ingests structured data from two primary sources: a PostgreSQL trans
 9. **observability and montoring**:
 -I made an observability and montoring stack with prometheus and grafana to check the health of the orchestrator airflow by exporting its metrics to prometheus and making dashboards using grafana.
 
+10. **Infrastructure automation**
+- Used terraform to automate the infrastructre provisioning on AWS.
 ---
 
 ## 📂 Project Structure
@@ -77,12 +79,12 @@ airflow_project/
 │
 ├── dags/                      # Airflow DAGs (Orchestration scripts)
 │   └── production.py
-│
+│── ETL/                       # the spark ETL job  
 ├── include/                   
 │   ├── spark_jobs/             # PySpark ETL scripts
 │   ├── archive/                # Processed CSVs
 │   └── gx/                     # Great Expectations configs and docs
-│
+│── infra/                       # terraform code      
 ├── plugins/                   # Airflow custom plugins (optional)
 │
 ├── Dockerfile                  # Airflow Docker setup
