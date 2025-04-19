@@ -21,6 +21,7 @@ It demonstrates how to build a robust, production-ready pipeline, following indu
 - **Data Warehouse**: Amazon Redshift Serverless
 - **Monitoring & Alerts**: Slack Webhooks
 - **Visualization**: Power BI
+- **Observability**: Prometheus and Grafana
 
 ---
 
@@ -63,6 +64,9 @@ The project ingests structured data from two primary sources: a PostgreSQL trans
 8. **Orchestration and Monitoring**:  
    - Orchestrate the entire pipeline using Apache Airflow DAGs.
    - Configure Slack Webhook alerts to notify the data team on task failures or pipeline anomalies.
+   
+9. **observability and montoring**:
+-I made an observability and montoring stack with prometheus and grafana to check the health of the orchestrator airflow by exporting its metrics to prometheus and making dashboards using grafana.
 
 ---
 
@@ -105,6 +109,15 @@ We Used Slack Webhooks to send automated notifications if tasks failed
 ## Data Visualization, Dashboard:
 ![alt](assets/vis.png)
 ![alt](assets/vis1.png)
+
+## Observability:
+
+I made an observability and montoring stack with prometheus and grafana to check the health of the orchestrator airflow by exporting its metrics to prometheus and making dashboards using grafana.
+![alt](assets/grafana.png)
+![alt](assets/gra.png)
+
+![alt](assets/11.png)
+
 ---
 
 
