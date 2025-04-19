@@ -1,0 +1,20 @@
+# Terraform state
+*.tfstate
+*.tfstate.backup
+
+# Sensitive variable values
+*.tfvars
+*.auto.tfvars
+
+# Terraform modules/plugins
+.terraform/
+.terraform.lock.hcl
+
+# Crash logs
+crash.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
